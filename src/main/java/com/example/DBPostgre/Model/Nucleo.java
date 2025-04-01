@@ -21,7 +21,7 @@ public class Nucleo {
 
     @Column(name = "nombre_nucleo" , nullable = false, length = 50, unique = true)
     private String nombre;
-
+//loco
     @ManyToMany(mappedBy = "nucleo")
     private Set<Estudiante> estudiantes;
 }
