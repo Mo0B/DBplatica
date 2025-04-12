@@ -65,19 +65,22 @@ public class PropiertarioController {
         }
     }
 
+    // CONSULTAS NATIVAS
+    //Retornamos las consultas
     @GetMapping("/con-visitantes")
     public List<Object[]> obtenerPropietariosConVisitantes() {
         return propiertarioRepository.obtenerPropietariosConVisitantes();
     }
+
     @GetMapping("/con-parqueaderos")
     public List<Object[]> obtenerPropietariosConReservasParqueadero() {
         return propiertarioRepository.obtenerPropietariosConReservasParqueadero();
     }
+
     @GetMapping("/con-zonasocial")
     public List<Object[]> obtenerPropietariosConReservasZonaSocial() {
         return propiertarioRepository.obtenerPropietariosConReservasZonaSocial();
     }
-
 
     @GetMapping("/con-visitantes-parqueadero")
     public List<Object[]> obtenerPropietarioConVisitanteYParqueadero() {
