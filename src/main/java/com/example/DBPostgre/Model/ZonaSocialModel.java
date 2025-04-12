@@ -21,5 +21,6 @@ public class ZonaSocialModel {
     @Column(nullable = false, length = 100, unique = true)
     private String ubicacion;
 
+    @Column(nullable = false, length = 20)
     private int capacidad;
 }

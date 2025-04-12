@@ -42,4 +42,14 @@ public class PropietarioService {
             return propiertarioRepository.save(propietarioExistente);
         }).orElseThrow(() -> new RuntimeException("Propietario no encontrado con id: " + id));
     }
+
+    public boolean M_eliminarPorId(Long id) {
+        if (propiertarioRepository.existsById(id)) {
+            propiertarioRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
