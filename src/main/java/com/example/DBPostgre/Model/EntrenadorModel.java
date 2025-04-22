@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Entity
 @Getter
@@ -12,17 +11,15 @@ import java.time.LocalTime;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Reservas_Parqueaderos")
-public class ReservasParqueaderoModel {
+@Table(name = "Entrenadores")
+
+public class EntrenadorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    private LocalDate fecha;
-
-    private LocalTime hora_inicio;
-
+    private String aNombre;
+    private String aEspecialidad;
     @ManyToOne
-    @JoinColumn(name = "id_propietario", nullable = false)
-    private PropietarioModel propietarioModel;
+    @JoinColumn(name = "id_equipo", nullable = false)
+    private EquipoModel equipoModel;
 }
