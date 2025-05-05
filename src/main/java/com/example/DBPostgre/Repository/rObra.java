@@ -1,4 +1,7 @@
 package com.example.DBPostgre.Repository;
 
-public interface rObra {
+import com.example.DBPostgre.Model.mObra;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface rObra extends JpaRepository<mObra, Long> {
 }

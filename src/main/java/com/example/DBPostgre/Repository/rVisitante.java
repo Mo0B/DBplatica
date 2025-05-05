@@ -1,4 +1,7 @@
 package com.example.DBPostgre.Repository;
 
-public interface rVisitante {
+import com.example.DBPostgre.Model.mVisitante;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface rVisitante extends JpaRepository<mVisitante, Long> {
 }
