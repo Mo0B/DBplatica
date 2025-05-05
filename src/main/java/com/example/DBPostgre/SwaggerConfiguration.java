@@ -12,9 +12,9 @@ public class SwaggerConfiguration {
     public OpenAPI Documentacion_api(){
         return new OpenAPI()
                 .info(new Info()
-                        .title("API de Partidos")
+                        .title("API de Control de entrada de Conjuntos Residenciales")
                         .version("1.0")
-                        .description("Documentacion de API para el control de Partidos")
+                        .description("Documentacion de API para el control de entrada de conjuntos residenciales")
                         .contact(new Contact()
                                 .name("Mo0B")
                                 .email("bachicanoy@ucundinamarca.edu.co")));

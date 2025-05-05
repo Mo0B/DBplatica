@@ -3,7 +3,7 @@ package com.example.DBPostgre.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -11,15 +11,16 @@ import java.time.LocalDate;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Entrenadores")
-
-public class EntrenadorModel {
+@Table(name = "Correspondecias")
+public class mCorrespondencia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String aNombre;
-    private String aEspecialidad;
+
+    private LocalDateTime fecha_entrada;
+    private String categoria;
+    private String empresa;
+
     @ManyToOne
-    @JoinColumn(name = "id_equipo", nullable = false)
-    private EquipoModel equipoModel;
+    private mInquilino residente;
 }

@@ -3,21 +3,22 @@ package com.example.DBPostgre.Model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
-
 @Entity
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Equipos")
-
-public class EquipoModel {
+@Table(name = "Mantenimientos")
+public class mMantenimiento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String aNombre;
-    private String aCiudad;
-    private LocalDate aFundacion;
+
+    private String nombre;
+    private String apellido;
+    private String telefono;
+    private String num_Documento;
+    private String compania;
+    private String categoria;
 }
