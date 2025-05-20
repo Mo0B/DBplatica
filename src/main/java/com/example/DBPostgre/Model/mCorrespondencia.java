@@ -22,5 +22,5 @@ public class mCorrespondencia {
     private String empresa;
 
     @ManyToOne
-    private mInquilino residente;
+    private mInquilino inquilino;
 }
