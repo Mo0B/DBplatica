@@ -1,6 +1,7 @@
 package com.example.DBPostgre;
 
 import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.DotenvException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,7 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DbPostgreApplication {
 
 	public static void main(String[] args) {
-		CargarEnv();
+
+		try {
+			CargarEnv();
+			System.out.println(".env loaded successfully");
+		} catch (DotenvException e) {
+			System.out.println("No .env file found, continuing without it");
+		}
 		SpringApplication.run(DbPostgreApplication.class, args);
 	}
 
