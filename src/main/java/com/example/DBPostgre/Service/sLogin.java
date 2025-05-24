@@ -3,6 +3,7 @@ import com.example.DBPostgre.Model.mVigilante;
 import com.example.DBPostgre.Repository.rVigilante;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+@Service
 public class sLogin {
     @Autowired
     private rVigilante vigilanteRepository;

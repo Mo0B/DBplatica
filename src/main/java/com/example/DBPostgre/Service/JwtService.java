@@ -5,8 +5,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+@Service
 public class JwtService {
-    private final String secretKey = "1010150315";
+    private final String secretKey = "kS5x8J6Dc0vCpVpKm8bHwS/2shEUIkr7fDZWr7svX0rLlvY8fVDW0XEWZCmi4NTCk8aOJrVddqA3QyYGqIgIlvQ==";
 
     public String generateToken(mVigilante vigilante) {
         Date now = new Date();
