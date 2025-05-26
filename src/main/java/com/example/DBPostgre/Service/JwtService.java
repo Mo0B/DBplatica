@@ -12,6 +12,7 @@ public class JwtService {
     private final String secretKey = "kS5x8J6Dc0vCpVpKm8bHwS/2shEUIkr7fDZWr7svX0rLlvY8fVDW0XEWZCmi4NTCk8aOJrVddqA3QyYGqIgIlvQ==";
 
     public String generateToken(Optional<mVigilante> optionalVigilante) {
+
         mVigilante vigilante = optionalVigilante.orElseThrow(() -> new IllegalArgumentException("Vigilante no encontrado"));
 
         Date now = new Date();

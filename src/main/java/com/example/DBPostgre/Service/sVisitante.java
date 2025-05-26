@@ -62,7 +62,7 @@ public class sVisitante {
          visitante.setApellido(request.getApellido());
          visitante.setTelefono(request.getTelefono());
          visitante.setNum_Documento(request.getNum_Documento());
-
+        System.out.println("Buscando vigilante con ID: " + request.getVigilante_reg());
         mVigilante vigilante = vigilanteRepository.findById(request.getVigilante_reg())
                 .orElseThrow(() -> new RuntimeException("Vigilante no encontrado"));
         visitante.setVigilante_reg(vigilante);
