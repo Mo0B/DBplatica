@@ -19,6 +19,7 @@ public class JwtService {
 
         return Jwts.builder()
                 .setSubject(vigilante.getUsuario())
+                .claim("id", vigilante.getId())
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
                 .signWith(SignatureAlgorithm.HS512, secretKey)
@@ -38,5 +39,11 @@ public class JwtService {
         return Jwts.parser().setSigningKey(secretKey)
                 .parseClaimsJws(token).getBody().getSubject();
     }
+    public Long extractVigilanteId(String token) {
+        Claims claims = Jwts.parser().setSigningKey(secretKey)
+                .parseClaimsJws(token).getBody();
+        return claims.get("id", Long.class);
+    }
+
 }
 
