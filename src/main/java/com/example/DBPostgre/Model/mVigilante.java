@@ -22,4 +22,8 @@ public class mVigilante {
     private String usuario;
     private String contra;
     private boolean accion;
+
+    public boolean isAccion() {
+        return accion;
+    }
 }

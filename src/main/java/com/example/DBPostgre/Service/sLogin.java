@@ -3,6 +3,9 @@ import com.example.DBPostgre.Model.mVigilante;
 import com.example.DBPostgre.Repository.rVigilante;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
 @Service
 public class sLogin {
     @Autowired
@@ -12,10 +15,15 @@ public class sLogin {
     private JwtService jwtService;
 
     public String login(String usuario, String contra) {
-        mVigilante vigilante = vigilanteRepository.findByUsuario(usuario);
-        if (vigilante != null && vigilante.getContra().equals(contra)) {
-            return jwtService.generateToken(vigilante);
+        Optional<mVigilante> vigilanteOpt = vigilanteRepository.findByUsuario(usuario);
+
+        if (vigilanteOpt.isPresent()) {
+            mVigilante vigilante = vigilanteOpt.get();
+            if (vigilante.getContra().equals(contra)) {
+                return jwtService.generateToken(Optional.of(vigilante));
+            }
         }
         return null;
     }
+
 }

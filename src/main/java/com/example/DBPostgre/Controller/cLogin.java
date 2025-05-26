@@ -1,5 +1,9 @@
 package com.example.DBPostgre.Controller;
+import com.example.DBPostgre.Model.VigilanteMapper;
+import com.example.DBPostgre.Model.mVigilante;
+import com.example.DBPostgre.Model.mVigilanteDTO;
 import com.example.DBPostgre.Service.sLogin;
+import com.example.DBPostgre.Service.sVigilante;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,6 +12,14 @@ import org.springframework.web.bind.annotation.*;
 public class cLogin {
     @Autowired
     private sLogin loginService;
+    private final sVigilante vigilanteS;
+
+    @Autowired
+    public cLogin(sLogin loginService, sVigilante vigilanteS) {
+        this.loginService = loginService;
+        this.vigilanteS = vigilanteS;
+    }
+
 
     public static class LoginRequest {
         public String usuario;
@@ -31,4 +43,11 @@ public class cLogin {
             return ResponseEntity.status(401).body("Usuario o contraseña incorrectos");
         }
     }
+    @GetMapping("/vigilante/me")
+    public ResponseEntity<mVigilanteDTO> getVigilanteLogueado() {
+        mVigilante vigilante = vigilanteS.getLoggedVigilante();
+        mVigilanteDTO dto = VigilanteMapper.toDto(vigilante);
+        return ResponseEntity.ok(dto);
+    }
+
 }

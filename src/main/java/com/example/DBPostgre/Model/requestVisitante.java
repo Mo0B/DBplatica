@@ -1,23 +1,18 @@
 package com.example.DBPostgre.Model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
-
-@Entity
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Visitantes")
-public class mVisitante {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+public class requestVisitante {
 
     private String nombre;
     private String apellido;
@@ -28,9 +23,7 @@ public class mVisitante {
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime fecha_visita;
 
-    @ManyToOne
-    private mInquilino inquilino;
+    private Long vigilante_reg;
+    private Long inquilino;
 
-    @ManyToOne
-    private mVigilante vigilante_reg;
 }

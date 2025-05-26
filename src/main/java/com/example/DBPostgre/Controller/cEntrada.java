@@ -1,6 +1,8 @@
 package com.example.DBPostgre.Controller;
 import com.example.DBPostgre.Model.mEntrada;
+import com.example.DBPostgre.Model.requesEntrada;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.DBPostgre.Service.sEntrada;
 import java.util.List;
@@ -10,7 +12,11 @@ import java.util.Optional;
 @RequestMapping("/api/entrada")
 public class cEntrada {
     private final sEntrada entradaS;
-
+    @PostMapping("registrar")
+    public ResponseEntity<mEntrada> registrarEntrada(@RequestBody requesEntrada request) {
+        mEntrada entradaCreada = entradaS.registrarEntrada(request);
+        return ResponseEntity.ok(entradaCreada);
+    }
     @GetMapping("all")
     public List<mEntrada> getAllEntradas() {
         return entradaS.getAllEntradas();

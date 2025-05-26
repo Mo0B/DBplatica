@@ -12,9 +12,9 @@ public class DbPostgreApplication {
 
 		try {
 			CargarEnv();
-			System.out.println(".env loaded successfully");
+			System.out.println(".env se usa correctamente");
 		} catch (DotenvException e) {
-			System.out.println("No .env file found, continuing without it");
+			System.out.println("Nada de .env continuamos si esa bestia");
 		}
 		SpringApplication.run(DbPostgreApplication.class, args);
 	}
